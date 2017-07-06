@@ -17,11 +17,6 @@ npm install
 docker-compose build
 ```
 
-※gulpが存在しない旨のエラーが発生する場合には以下のコマンドを実行してください。
-```
-docker-compose run app npm install
-```
-
 * タスクランナー起動
 ```
 docker-compose up
