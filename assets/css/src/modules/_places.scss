@@ -1,6 +1,5 @@
 #places-page-container {
-  padding-top: 70px;
-  padding-bottom: 130px;
+  padding: 70px 0 130px;
 
   .navi {
     display: flex;
@@ -20,7 +19,7 @@
       &::before {
         content: "";
         display: inline-block;
-        position: absolute; 
+        position: absolute;
         width: 12px;
         height: 12px;
         border: 2px solid #ccc;
@@ -63,114 +62,111 @@
         transform: rotate(45deg);
         top: 27px;
         right: calc(-50% + 4px);
-        z-index: 100; 
+        z-index: 100;
       }
     }
   }
-  
-  .input {
-    .places {
-      .place {
-        padding: 30px 0;
-        text-align: center;
-        font-size: xx-small;
 
-        .thumb {
-          margin: 0 10%;
-          width: 80%;
-          height: 120px;
-          background-size: 100% 120px;
-        }
-        
-        p {
-          margin: 20px 0;
-        }
+  .places {
+    .place {
+      padding: 30px 0;
+      text-align: center;
+      font-size: xx-small;
+
+      .thumb {
+        margin: 0 10%;
+        width: 80%;
+        height: 120px;
+        background-size: 100% 120px;
       }
 
-      .place-memo {
-        margin-top: 20px;
-        padding: 10px;
-        background-color: #eee;
-        font-size: xx-small;
-        color: $text-base-color;
-
-        .memo {
-          font-size: xx-small;
-        }
-
-        p {
-          margin-bottom: 10px;
-        }
+      p {
+        margin: 20px 0;
       }
     }
 
-    .preview {
-      padding: 0 50px;
+    .place-memo {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eee;
+      font-size: xx-small;
+      color: $text-base-color;
 
-      .price {
-        text-align: right;
-
-        .tax {
-          margin-right: 5px;
-          font-size: xx-small;
-          color: $text-base-color;
-        }
-
-        .unit {
-          color: $text-base-color;
-        }
-
-        .money {
-          font-size: large;        
-        }
+      .memo {
+        font-size: xx-small;
       }
 
-      .preview-image {
-        margin-top: 10px;
-        height: 300px;
-        text-align: center;
-        background-image: url("/images/bg_outside.png");
-        border: 2px solid #ccc;
-        border-top-right-radius: 5px;
-        border-top-left-radius: 5px;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
 
-        .description {
-          margin-top: 140px;
-          font-size: x-small;
-        }
+  .preview {
+    .price {
+      text-align: right;
+
+      .tax {
+        margin-right: 5px;
+        font-size: xx-small;
+        color: $text-base-color;
       }
 
-      .preview-details {
-        margin-top: 0;
-        height: 350px;
-        border: 2px solid #ccc;
-        border-top-style: none;
-        border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px;
+      .unit {
+        color: $text-base-color;
       }
 
-      .details-top {
-        margin: 0;
-        padding: 30px 20px 10px 10px;
-        height: 45%;
-        border-bottom: 2px dotted #ccc;
+      .money {
+        font-size: large;
       }
+    }
 
-      .details-bottom {
-        margin: 0;
-        padding: 20px 20px 10px 10px;
-        height: 55%;
+    .preview-image {
+      margin-top: 10px;
+      height: 300px;
+      text-align: center;
+      background-image: url("/images/bg_outside.png");
+      border: 2px solid #ccc;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+
+      .description {
+        margin-top: 140px;
+        font-size: x-small;
       }
+    }
 
-      .details-label {
-        padding: 0;
-        text-align: right;
+    .preview-details {
+      margin-top: 0;
+      height: 350px;
+      border: 2px solid #ccc;
+      border-top-style: none;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
 
-        p {
-          margin-bottom: 10px;
-          color: $text-base-color;
-          font-size: xx-small;
-        }
+    .details-top {
+      margin: 0;
+      padding: 30px 20px 10px 10px;
+      height: 45%;
+      border-bottom: 2px dotted #ccc;
+    }
+
+    .details-bottom {
+      margin: 0;
+      padding: 20px 20px 10px 10px;
+      height: 55%;
+    }
+
+    .details-label {
+      padding: 0;
+      text-align: right;
+
+      p {
+        margin-bottom: 10px;
+        color: $text-base-color;
+        font-size: xx-small;
       }
     }
   }
@@ -190,6 +186,7 @@
 
 #places-footer {
   @extend #global-footer;
-  position: absolute;
+  position: relative;
   bottom: 0;
+  padding-bottom: 50px;
 }
