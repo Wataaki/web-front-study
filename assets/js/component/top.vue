@@ -1,16 +1,110 @@
 <template>
   <div>
-    <h1 v-text="message"></h1>
-    <router-link to="places">Places</router-link>
-    <router-link to="proposals">Proposals</router-link>
-    <router-view></router-view>
+    <header id="index-header">
+      <img class="company-logo" src="/images/top_logo_ykkap.png" />
+    </header>
+    <div class="container" id="index-page-container">
+      <header class="title-header">
+        <p class="title">窓のリフォーム商品をかんたんシミュレーション</p>
+      </header>
+      <div class="body">
+        <div class="row">
+          <div class="col-md-8 offset-md-2 logo-wrapper">
+            <img class="logo" src="/images/madotop_logo_madoremo.png" />
+          </div>
+        </div>
+        <div class="row index-top-btns">
+          <div class="col-md-4 offset-md-2">
+            <router-link to="proposals">シミュレーションを始める</router-link>
+          </div>
+          <div class="col-md-4">
+            <a href="/how_to_use.pdf">使い方を見る</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="update-info">
+            <p class="update-title">【APW330 &quot;外観色追加&quot; および &quot;内観色販売終了&quot;のお知らせ】</p>
+            <div class="update-description">
+              <p>4月1日(土)より、APW330 の商品色について、次の通り、変更となりますのでお知らせいたします。
+                <br />　
+                <br />　① 外観：ブラック色 が追加となります。（内観：ホワイト色のみ）
+                <br />　② 外観：ホワイト色 × 内観：木目色（3色）を販売終了いたします。
+                <br />&nbsp;
+              </p>
+            </div>
+            <div class="color-table">
+              <p>外観×内観カラー組み合わせ</p>
+              <table>
+                <tr>
+                  <th v-for="colorTable in colorTables" v-bind:key="colorTable">
+                    {{ colorTable.header }}
+                  </th>
+                </tr>
+                <tr>
+                  <td>ホワイト</td>
+                  <td>●</td>
+                  <td class="sales-end">販売終了</td>
+                  <td class="sales-end">販売終了</td>
+                  <td class="sales-end">販売終了</td>
+                </tr>
+                <tr>
+                  <td>ブラウン</td>
+                  <td>●</td>
+                  <td>●</td>
+                  <td>●</td>
+                  <td>●</td>
+                </tr>
+                <tr>
+                  <td>プラチナステン</td>
+                  <td>●</td>
+                  <td>●</td>
+                  <td>●</td>
+                  <td>●</td>
+                </tr>
+                <tr>
+                  <td>ブラック</td>
+                  <td class="new">●<br>NEW</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="description">
+            <p>●最新のブラウザ環境でご利用ください。Windowsの場合 InternetExplorer11(windows7)以降の対応となります。
+              <br />  ※推奨環境については、「使い方を見る」に掲載しておりますので、ご確認ください。
+              <br />●表示価格には消費税は含まれていません。
+              <br />●価格は参考価格ですので、ご採用には正式なお見積りをご依頼下さい。
+              <br />●商品の色は、画面の特性上、実物と多少異なる場合がありますのでご了承ください。
+              <br />●商品画像は参考ですので、実際の商品仕様とは異なる場合があります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="global-footer">
+      <div class="footer-copyright">
+        <div class="copyright-text">
+          <small>COPYRIGHT ©　YKK AP Inc. ALL RIGHTS RESERVED</small>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 <script>
 module.exports = {
   data: function(){
     return {
-      message: "Top"
+      colorTables: [
+        {header: "外観 ＼ 内観"},
+        {header: "ホワイト"},
+        {header: "ナチュラル"},
+        {header: "クリア"},
+        {header: "ダークブラウン"}
+      ]
     }
   }
 }
