@@ -38,37 +38,17 @@
               <p>外観×内観カラー組み合わせ</p>
               <table>
                 <tr>
-                  <th v-for="colorTable in colorTables" v-bind:key="colorTable">
-                    {{ colorTable.header }}
+                  <th v-for="(tableHeader, idx) in tableHeaders" :key="idx">
+                    {{ tableHeader.header }}
                   </th>
                 </tr>
-                <tr>
-                  <td>ホワイト</td>
-                  <td>●</td>
-                  <td class="sales-end">販売終了</td>
-                  <td class="sales-end">販売終了</td>
-                  <td class="sales-end">販売終了</td>
-                </tr>
-                <tr>
-                  <td>ブラウン</td>
-                  <td>●</td>
-                  <td>●</td>
-                  <td>●</td>
-                  <td>●</td>
-                </tr>
-                <tr>
-                  <td>プラチナステン</td>
-                  <td>●</td>
-                  <td>●</td>
-                  <td>●</td>
-                  <td>●</td>
-                </tr>
-                <tr>
-                  <td>ブラック</td>
-                  <td class="new">●<br>NEW</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
+                <tr v-for="(tableRow, i) in tableRows" :key="i">
+                  <td>{{ tableRow.title }}</td>
+                  <td v-for="(data, j) in tableRow.data" :key="j" 
+                      :class="{ 'sales-end': !data.outStockFlg, 'new': data.newFlg }">
+                    {{ data.value }}
+                    <p v-if="data.newFlg">NEW</p>
+                  </td>
                 </tr>
               </table>
             </div>
@@ -98,14 +78,141 @@
 module.exports = {
   data: function(){
     return {
-      colorTables: [
-        {header: "外観 ＼ 内観"},
-        {header: "ホワイト"},
-        {header: "ナチュラル"},
-        {header: "クリア"},
-        {header: "ダークブラウン"}
+      "tableHeaders": [
+        {"header": "外観 ＼ 内観"},
+        {"header": "ホワイト"},
+        {"header": "ナチュラル"},
+        {"header": "クリア"},
+        {"header": "ダークブラウン"}
+      ],
+      "tableRows": [
+        {
+          "title": "ホワイト",
+          "data": [
+            {
+              "color": "white",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "natural",
+              "value": "販売終了",
+              "outStockFlg": false,
+              "newFlg": false
+            },
+            {
+              "color": "clear",
+              "value": "販売終了",
+              "outStockFlg": false,
+              "newFlg": false
+            },
+            {
+              "color": "darkBrown",
+              "value": "販売終了",
+              "outStockFlg": false,
+              "newFlg": false
+            }
+          ],
+        },
+        {
+          "title": "ブラウン",
+          "data": [
+            {
+              "color": "white",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "natural",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "clear",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "darkBrown",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            }
+          ],
+        },
+        {
+          "title": "プラチナステン",
+          "data": [
+            {
+              "color": "white",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "natural",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "clear",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            },
+            {
+              "color": "darkBrown",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": false
+            }
+          ],
+        },
+        {
+          "title": "ブラック",
+          "data": [
+            {
+              "color": "white",
+              "value": "●",
+              "outStockFlg": true,
+              "newFlg": true
+            },
+            {
+              "color": "natural",
+              "value": "-",
+              "outStockFlg": false,
+              "newFlg": false
+            },
+            {
+              "color": "clear",
+              "value": "-",
+              "outStockFlg": false,
+              "newFlg": false
+            },
+            {
+              "color": "darkBrown",
+              "value": "-",
+              "outStockFlg": false,
+              "newFlg": false
+            }
+          ],
+        }
       ]
     }
+  },
+  created: function(){
+    var apiURL = "https://private-9d1ba-webfrontstudy1.apiary-mock.com/tops";
+    // $.getJSON(
+    //   apiURL,
+    //   function(data) {
+    //     alert(data);
+    //   }
+    // );
   }
 }
 </script>
